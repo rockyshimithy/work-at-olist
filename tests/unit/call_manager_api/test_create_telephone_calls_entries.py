@@ -267,3 +267,31 @@ def test_success_post_calls_type_end_with_source_and_destination(client):
     assert data['call_id'] == telephone_calls[0].call_id
     assert telephone_calls[0].source is None
     assert telephone_calls[0].destination is None
+
+
+@pytest.mark.django_db
+def test_fail_post_calls_type_start_that_already_exists(client, telephone_call_type_start):
+    data = {'type': 'start',
+            'timestamp': '2016-02-29T14:02:02Z',
+            'call_id': 1,
+            'source': 12345678900,
+            'destination': 12345678901}
+
+    response = client.post('/calls/', data=json.dumps(data), content_type='application/json')
+
+    assert response.status_code == 400
+    assert response.json()['non_field_errors'][0] == 'The fields type, call_id must make a unique set.'
+
+
+@pytest.mark.django_db
+def test_fail_post_calls_type_end_that_already_exists(client, telephone_call_type_end):
+    data = {'type': 'end',
+            'timestamp': '2016-02-29T14:02:02Z',
+            'call_id': 1,
+            'source': 12345678900,
+            'destination': 12345678901}
+
+    response = client.post('/calls/', data=json.dumps(data), content_type='application/json')
+
+    assert response.status_code == 400
+    assert response.json()['non_field_errors'][0] == 'The fields type, call_id must make a unique set.'
