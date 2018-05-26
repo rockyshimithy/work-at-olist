@@ -18,7 +18,8 @@ clean:
 	find . -iname *.pyc -delete
 	find . -iname *.pyo -delete
 	find . -iname __pycache__ -delete
-	rm -fr .cache;
+	rm -rf .pytest_cache
+	rm -rf .cache;
 
 
 requirements:
