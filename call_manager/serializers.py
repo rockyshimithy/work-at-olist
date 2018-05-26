@@ -10,7 +10,7 @@ class TelephoneCallSerializer(serializers.ModelSerializer):
 
     type = serializers.ChoiceField(choices=('start', 'end'), help_text='Record type. Options are "start" or "end"')
     timestamp = serializers.DateTimeField(required=True, help_text='Timestamp of the event')
-    call_id = serializers.PositiveIntegerField(min_value=1, required=True, help_text='Unique identifier for the call')
+    call_id = serializers.IntegerField(min_value=1, required=True, help_text='Unique identifier for the call')
     source = serializers.RegexField(r'\d{10,11}$', max_length=11, min_length=10, required=False,
                                     help_text=('This field is required when type is "start". '
                                                'Telephone number that originated the call'))
