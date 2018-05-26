@@ -6,7 +6,7 @@ import pytz
 import pytest
 import factory.django
 
-from call_manager.models import TelephoneCall
+from telephone_call_manager.models import TelephoneCall
 
 
 class TelephoneCallFactory(factory.django.DjangoModelFactory):
@@ -35,6 +35,22 @@ def telephone_calls(telephone_call_type_start):
     telephone_calls = [
         telephone_call_type_start,
         telephone_call_type_end,
+        TelephoneCallFactory(call_id=70, type='start', timestamp='2016-02-29T12:00:00Z'),
+        TelephoneCallFactory(call_id=70, type='end', timestamp='2016-02-29T14:00:00Z'),
+        TelephoneCallFactory(call_id=71, type='start', timestamp='2017-12-12T15:07:13Z'),
+        TelephoneCallFactory(call_id=71, type='end', timestamp='2017-12-12T15:14:56Z'),
+        TelephoneCallFactory(call_id=72, type='start', timestamp='2017-12-12T22:47:56Z'),
+        TelephoneCallFactory(call_id=72, type='end', timestamp='2017-12-12T22:50:56Z'),
+        TelephoneCallFactory(call_id=73, type='start', timestamp='2017-12-12T21:57:13Z'),
+        TelephoneCallFactory(call_id=73, type='end', timestamp='2017-12-12T22:10:56Z'),
+        TelephoneCallFactory(call_id=74, type='start', timestamp='2017-12-12T04:57:13Z'),
+        TelephoneCallFactory(call_id=74, type='end', timestamp='2017-12-12T06:10:56Z'),
+        TelephoneCallFactory(call_id=75, type='start', timestamp='2017-12-12T21:57:13Z'),
+        TelephoneCallFactory(call_id=75, type='end', timestamp='2017-12-13T22:10:56Z'),
+        TelephoneCallFactory(call_id=76, type='start', timestamp='2017-12-12T15:07:58Z'),
+        TelephoneCallFactory(call_id=76, type='end', timestamp='2017-12-12T15:12:56Z'),
+        TelephoneCallFactory(call_id=77, type='start', timestamp='2018-02-28T21:57:13Z'),
+        TelephoneCallFactory(call_id=77, type='end', timestamp='2018-03-01T22:10:56Z'),
     ]
 
     return telephone_calls

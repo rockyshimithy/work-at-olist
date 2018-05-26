@@ -6,7 +6,7 @@ import json
 import pytest
 import pytz
 
-from call_manager.models import TelephoneCall
+from telephone_call_manager.models import TelephoneCall
 
 
 @pytest.mark.django_db
