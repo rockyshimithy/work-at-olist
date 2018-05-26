@@ -1,9 +1,17 @@
 *.py[co]
 .DS_Store
 .idea
+.idea/
 *.swp*
 *~
 *.tmproj
 *.log
+*.log*
 .env
 tmp
+*.pyc
+__pycache__/
+.cache
+.coverage
+*.sqlite3
+.pytest_cache/
