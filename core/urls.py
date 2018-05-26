@@ -22,4 +22,5 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('calls/', include('telephone_call_manager.urls')),
+    path('bills/', include('telephone_bill_manager.urls')),
 ]

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'telephone_call_manager',
+    'telephone_bill_manager',
 ]
 
 MIDDLEWARE = [
