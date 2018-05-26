@@ -1,6 +1,7 @@
 -r requirements.txt
 flake8
 ipython
-ipdb
 pytest == 3.5.1
 pytest-django == 3.2.1
+django-factory-boy == 1.0.0
+factory-boy == 2.11.1
