@@ -7,6 +7,7 @@ import pytest
 import factory.django
 
 from telephone_call_manager.models import TelephoneCall
+from telephone_bill_manager.models import TelephoneBill
 
 
 class TelephoneCallFactory(factory.django.DjangoModelFactory):
@@ -18,6 +19,19 @@ class TelephoneCallFactory(factory.django.DjangoModelFactory):
     call_id = 1
     source = 12345678900
     destination = 12345678901
+
+
+class TelephoneBillFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = TelephoneBill
+
+    subscriber = 12345678900
+    period = datetime(2016, 2, 29, tzinfo=pytz.utc)
+    destination = 12345678901
+    start_date = datetime(2016, 2, 29, tzinfo=pytz.utc)
+    start_time = datetime(2016, 2, 29, 14, 2, 2, tzinfo=pytz.utc)
+    duration = '02:02:02'
+    price = 10.99
 
 
 @pytest.fixture()
