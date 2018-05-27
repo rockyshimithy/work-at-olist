@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz
 import pytest
 import factory.django
@@ -30,7 +30,7 @@ class TelephoneBillFactory(factory.django.DjangoModelFactory):
     destination = 12345678901
     start_date = datetime(2016, 2, 29, tzinfo=pytz.utc)
     start_time = datetime(2016, 2, 29, 14, 2, 2, tzinfo=pytz.utc)
-    duration = '02:02:02'
+    duration = timedelta(hours=2, minutes=3, seconds=4)
     price = 10.99
 
 
@@ -68,3 +68,9 @@ def telephone_calls(telephone_call_type_start):
     ]
 
     return telephone_calls
+
+
+@pytest.fixture()
+def telephone_bill():
+    return TelephoneBillFactory()
+
