@@ -11,4 +11,3 @@ class TelephoneCall(generics.CreateAPIView):
 
     queryset = TelephoneCall.objects.all()
     serializer_class = TelephoneCallSerializer
-    name = 'telephone_call_entry'
