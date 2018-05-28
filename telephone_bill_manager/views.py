@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from django.shortcuts import get_object_or_404
 from rest_framework import generics
 
 from .models import TelephoneBill
 from .serializers import TelephoneBillSerializer
 
 
-class TelephoneBill(generics.RetrieveAPIView):
+class TelephoneBill(generics.ListAPIView):
 
-    queryset = TelephoneBill.objects.all()
-    serializer_class = TelephoneBillSerializer
-    name = 'telephone_bill_retrieve'
+    def get_queryset(self):
+        queryset = get_object_or_404(TelephoneBill, subscriber=self.kwargs['subscriber'])
+        serializer_class = TelephoneBillSerializer

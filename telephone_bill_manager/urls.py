@@ -7,5 +7,5 @@ from .views import TelephoneBill
 app_name = 'telephone_bill_manager'
 
 urlpatterns = [
-    path('', TelephoneBill.as_view(), name=TelephoneBill.name),
+    path('<int:subscriber>/', TelephoneBill.as_view(), name='telephone_bill_retrieve'),
 ]
